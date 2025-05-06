@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Requests - HealthSpace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#81C784',
+                            DEFAULT: '#4CAF50',
+                            dark: '#388E3C',
+                        },
+                        secondary: {
+                            light: '#C8E6C9',
+                            DEFAULT: '#8BC34A',
+                            dark: '#689F38',
+                        },
+                        background: '#F1F8E9',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="../../index.html" class="flex items-center text-white font-bold text-xl">
+                    <i class="fas fa-heartbeat mr-2"></i>
+                    HealthSpace
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-primary-light focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-2">
+                    <a href="dashboard.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Dashboard</a>
+                    <a href="add-service.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Add Service</a>
+                    <a href="manage-items.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Manage Items</a>
+                    <a href="requests.html" class="text-white bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Requests</a>
+                    <a href="#" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300 ml-4">Logout</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="dashboard.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Dashboard</a>
+                    <a href="add-service.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Add Service</a>
+                    <a href="manage-items.html" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Manage Items</a>
+                    <a href="requests.html" class="text-white bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Requests</a>
+                    <a href="#" class="text-white hover:bg-primary-dark px-3 py-2 rounded-md font-medium transition duration-300">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Sidebar -->
+            <div class="md:w-1/4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <div class="inline-block p-4 rounded-full bg-primary-light mb-3">
+                                <i class="fas fa-hospital text-white text-3xl"></i>
+                            </div>
+                            <h5 class="text-xl font-semibold">City Hospital</h5>
+                            <p class="text-gray-500">Hospital</p>
+                        </div>
+                        <div class="border-t border-gray-200 pt-4">
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="dashboard.html" class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary-light/20 hover:text-primary-dark rounded-md transition duration-300">
+                                        <i class="fas fa-tachometer-alt mr-3"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="add-service.html" class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary-light/20 hover:text-primary-dark rounded-md transition duration-300">
+                                        <i class="fas fa-plus-circle mr-3"></i>
+                                        Add Service
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="manage-items.html" class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary-light/20 hover:text-primary-dark rounded-md transition duration-300">
+                                        <i class="fas fa-list mr-3"></i>
+                                        Manage Items
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="requests.html" class="flex items-center px-4 py-2 text-primary-dark bg-primary-light/20 rounded-md font-medium">
+                                        <i class="fas fa-users mr-3"></i>
+                                        Customer Requests
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary-light/20 hover:text-primary-dark rounded-md transition duration-300">
+                                        <i class="fas fa-sign-out-alt mr-3"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="md:w-3/4">
+                <!-- Filter and Search Section -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="border-b border-gray-200 px-6 py-4">
+                        <h4 class="text-lg font-semibold text-gray-800">Customer Requests</h4>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-col md:flex-row gap-4 mb-6">
+                            <!-- Search -->
+                            <div class="flex-grow">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search requests..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-search text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Status Filter -->
+                            <div class="md:w-1/4">
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                                    <option value="">All Statuses</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="approved">Approved</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Date Filter -->
+                            <div class="md:w-1/4">
+                                <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                            </div>
+                        </div>
+                        
+                        <!-- Requests Table -->
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Request ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Request 1 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ001</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Amit Sharma</div>
+                                                    <div class="text-sm text-gray-500">amit.sharma@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Oxygen Cylinder</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 2, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹1,500.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-green-500 hover:text-green-700" title="Approve">
+                                                    <i class="fas fa-check"></i>
+                                                </button>
+                                                <button class="text-red-500 hover:text-red-700" title="Reject">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Request 2 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ002</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Priya Patel</div>
+                                                    <div class="text-sm text-gray-500">priya.patel@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hospital Bed</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">May 1, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹12,000.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Approved</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-purple-500 hover:text-purple-700" title="Mark as Delivered">
+                                                    <i class="fas fa-truck"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Request 3 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ003</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Rahul Verma</div>
+                                                    <div class="text-sm text-gray-500">rahul.verma@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ambulance Service</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 30, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹2,500.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Delivered</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-indigo-500 hover:text-indigo-700" title="Mark as Completed">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Request 4 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ004</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Sneha Reddy</div>
+                                                    <div class="text-sm text-gray-500">sneha.reddy@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Doctor Consultation</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 29, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹800.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">Completed</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-gray-500 hover:text-gray-700" title="Download Invoice">
+                                                    <i class="fas fa-file-invoice"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Request 5 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ005</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Vikram Singh</div>
+                                                    <div class="text-sm text-gray-500">vikram.singh@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Wheelchair</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 28, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹3,500.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Request 6 -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">#REQ006</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="/api/placeholder/40/40" alt="Customer Avatar">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Anjali Gupta</div>
+                                                    <div class="text-sm text-gray-500">anjali.gupta@example.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Home Nursing</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apr 27, 2025</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">₹1,200.00</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-500 hover:text-blue-700" title="View Details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-green-500 hover:text-green-700" title="Approve">
+                                                    <i class="fas fa-check"></i>
+                                                </button>
+                                                <button class="text-red-500 hover:text-red-700" title="Reject">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="flex items-center justify-between border-t border-gray-200 px-4 py-3 sm:px-6 mt-4">
+                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700">
+                                        Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span class="font-medium">15</span> results
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <span class="sr-only">Previous</span>
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-primary text-sm font-medium text-white hover:bg-primary-dark">
+                                            1
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                            2
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                            3
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <span class="sr-only">Next</span>
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="flex sm:hidden">
+                                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Previous
+                                </a>
+                                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Next
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Request Details Modal (Hidden by default) -->
+                <div class="hidden fixed z-10 inset-0 overflow-y-auto" id="request-details-modal">
+                    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                        </div>
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                <div class="sm:flex sm:items-start">
+                                    <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+                                        <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4" id="modal-title">
+                                            Request Details
+                                        </h3>
+                                        <div class="mt-2">
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Request ID:</div>
+                                                <div class="text-sm text-gray-900">#REQ001</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Customer Name:</div>
+                                                <div class="text-sm text-gray-900">Amit Sharma</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Contact:</div>
+                                                <div class="text-sm text-gray-900">+91 9876543210</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Email:</div>
+                                                <div class="text-sm text-gray-900">amit.sharma@example.com</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Service:</div>
+                                                <div class="text-sm text-gray-900">Oxygen Cylinder</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Request Date:</div>
+                                                <div class="text-sm text-gray-900">May 2, 2025</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Delivery Address:</div>
+                                                <div class="text-sm text-gray-900">123 Green Park, New Delhi</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Amount:</div>
+                                                <div class="text-sm text-gray-900">₹1,500.00</div>
+                                            </div>
+                                            <div class="flex justify-between mb-3">
+                                                <div class="text-sm font-medium text-gray-500">Status:</div>
+                                                <div class="text-sm">
+                                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <h4 class="text-sm font-medium text-gray-500 mb-2">Additional Notes:</h4>
+                                                <p class="text-sm text-gray-700">Need delivery by tomorrow afternoon. Please confirm availability.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary-dark focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                                    Approve Request
+                                </button>
+                                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                    Reject Request
+                                </button>
+                                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="close-modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('request-details-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        // View buttons - would need to be implemented for each row
+        const viewButtons = document.querySelectorAll('button[title="View Details"]');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                modal.classList.remove('hidden');
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthSpace - Your Health Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#81C784',
+                            DEFAULT: '#4CAF50',
+                            dark: '#388E3C',
+                        },
+                        secondary: {
+                            light: '#C8E6C9',
+                            DEFAULT: '#8BC34A',
+                            dark: '#689F38',
+                        },
+                        background: '#F1F8E9',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center text-white font-bold text-xl">
+                    <i class="fas fa-heartbeat mr-2"></i>
+                    HealthSpace
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-primary-light focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-4">
+                    <a href="auth/login.html" class="text-white hover:text-primary-light px-3 py-2 rounded-md font-medium transition duration-300">Login</a>
+                    <a href="auth/register.html" class="bg-white text-primary hover:bg-primary-light hover:text-white px-4 py-2 rounded-md font-medium transition duration-300">Register</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="auth/login.html" class="text-white hover:text-primary-light px-3 py-2 rounded-md font-medium transition duration-300">Login</a>
+                    <a href="auth/register.html" class="bg-white text-primary hover:bg-primary-light hover:text-white px-4 py-2 rounded-md font-medium transition duration-300 text-center">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-primary-light to-secondary py-20 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to HealthSpace</h1>
+            <p class="text-xl mb-8">Your one-stop solution for all healthcare needs</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="auth/register.html" class="bg-white text-primary hover:bg-primary-dark hover:text-white px-6 py-3 rounded-lg font-semibold transition duration-300 shadow-md">Get Started</a>
+                <a href="#services" class="border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition duration-300">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-background">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-bed text-4xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Medical Equipment Rental</h3>
+                        <p class="text-gray-600 text-center">Rent beds, oxygen cylinders, and other medical appliances.</p>
+                    </div>
+                    <!-- <div class="bg-primary-light py-3 text-center">
+                        <a href="#" class="text-white font-medium hover:text-primary-dark transition duration-300">Learn More</a>
+                    </div> -->
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-pills text-4xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Pharmacy Products</h3>
+                        <p class="text-gray-600 text-center">Order pharmaceutical products from nearby medical shops.</p>
+                    </div>
+                    <!-- <div class="bg-primary-light py-3 text-center">
+                        <a href="#" class="text-white font-medium hover:text-primary-dark transition duration-300">Learn More</a>
+                    </div> -->
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-flask text-4xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">Pathology Services</h3>
+                        <p class="text-gray-600 text-center">Book appointments for lab tests and diagnostics.</p>
+                    </div>
+                    <!-- <div class="bg-primary-light py-3 text-center">
+                        <a href="#" class="text-white font-medium hover:text-primary-dark transition duration-300">Learn More</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark">Why Choose Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="text-center p-4">
+                    <div class="bg-primary-light inline-block p-3 rounded-full mb-4">
+                        <i class="fas fa-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Reliable Service</h3>
+                    <p class="text-gray-600">Trusted by thousands of patients nationwide.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-4">
+                    <div class="bg-primary-light inline-block p-3 rounded-full mb-4">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Fast Delivery</h3>
+                    <p class="text-gray-600">Get your medical supplies delivered quickly.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center p-4">
+                    <div class="bg-primary-light inline-block p-3 rounded-full mb-4">
+                        <i class="fas fa-tag text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Competitive Prices</h3>
+                    <p class="text-gray-600">Affordable healthcare solutions for everyone.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center p-4">
+                    <div class="bg-primary-light inline-block p-3 rounded-full mb-4">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Our customer service team is always available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-primary py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+            <p class="text-white mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers who trust HealthSpace for their healthcare needs.</p>
+            <a href="auth/register.html" class="bg-white text-primary hover:bg-primary-light hover:text-white px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-md">Sign Up Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company Info</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Our Mission</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Our Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">HealthSpace</h3>
+                    <p class="text-gray-400 mb-4">Providing quality healthcare services since 2023.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary-light transition duration-300">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-light transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-primary-light"></i>
+                            <span class="text-gray-400">Software Engineering lab, Computer Lab 5</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2 text-primary-light"></i>
+                            <span class="text-gray-400">+91 8799609594</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-primary-light"></i>
+                            <span class="text-gray-400">221b187@juetguna.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p class="text-gray-400">&copy; 2025 HealthSpace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
