@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Mission - HealthSpace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              light: '#81C784',
+              DEFAULT: '#4CAF50',
+              dark: '#388E3C',
+            },
+            secondary: {
+              light: '#C8E6C9',
+              DEFAULT: '#8BC34A',
+              dark: '#689F38',
+            },
+            background: '#F1F8E9',
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Navigation Bar -->
+  <nav class="bg-primary shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <a href="../index.html" class="flex items-center text-white font-bold text-xl">
+          <i class="fas fa-heartbeat mr-2"></i> HealthSpace
+        </a>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-white hover:text-primary-light focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex space-x-4">
+          <a href="../auth/login.html" class="text-white hover:text-primary-light px-3 py-2 rounded-md font-medium transition duration-300">Login</a>
+          <a href="../auth/register.html" class="bg-white text-primary hover:bg-primary-light hover:text-white px-4 py-2 rounded-md font-medium transition duration-300">Register</a>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-2">
+          <a href="../auth/login.html" class="text-white hover:text-primary-light px-3 py-2 rounded-md font-medium transition duration-300">Login</a>
+          <a href="../auth/register.html" class="bg-white text-primary hover:bg-primary-light hover:text-white px-4 py-2 rounded-md font-medium transition duration-300 text-center">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mission Section -->
+  <section class="py-20 bg-background">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center text-primary-dark mb-8">Our Mission</h1>
+      <p class="text-lg text-gray-700 max-w-4xl mx-auto text-center">
+        At HealthSpace, our mission is to revolutionize access to healthcare by connecting individuals with essential medical services and supplies in a seamless and trustworthy way. We believe that quality healthcare should be available to everyone — fast, affordable, and reliable.
+      </p>
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-primary mb-4">Empowering Patients</h2>
+          <p class="text-gray-600">
+            We aim to empower patients with tools and services that simplify their health journey — from renting medical equipment to ordering pharmacy essentials.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-primary mb-4">Supporting Communities</h2>
+          <p class="text-gray-600">
+            By collaborating with local pharmacies, labs, and businesses, we support community-based healthcare and create job opportunities in the healthtech ecosystem.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-primary mb-4">Innovating with Technology</h2>
+          <p class="text-gray-600">
+            Our platform leverages modern web technologies to deliver a user-friendly experience that prioritizes speed, accessibility, and privacy.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-primary mb-4">Building Trust</h2>
+          <p class="text-gray-600">
+            Trust is at the core of HealthSpace. We ensure transparency, accountability, and customer support that truly cares.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (reuse from index) -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Company Info</h3>
+          <ul class="space-y-2">
+            <li><a href="mission.html" class="text-gray-400 hover:text-primary-light transition duration-300">Our Mission</a></li>
+            <li><a href="team-members.html" class="text-gray-400 hover:text-primary-light transition duration-300">Our Team</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">HealthSpace</h3>
+          <p class="text-gray-400 mb-4">Providing quality healthcare services since 2023.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-primary-light transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-primary-light"></i><span class="text-gray-400">Software Engineering lab, Computer Lab 5</span></li>
+            <li class="flex items-start"><i class="fas fa-phone mt-1 mr-2 text-primary-light"></i><span class="text-gray-400">+91 8799609594</span></li>
+            <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-primary-light"></i><span class="text-gray-400">221b187@juetguna.in</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+        <p class="text-gray-400">&copy; 2025 HealthSpace. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
